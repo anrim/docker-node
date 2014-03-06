@@ -1,6 +1,8 @@
 #!/bin/sh
 
+# set env variables
 set -e
 
+# run app
 cd build
 npm start

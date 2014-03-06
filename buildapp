@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# create dir store src files
+mkdir build
+rm -rf /build/*
+
+# download src
+cd /tmp
+curl -L $1 -o dl.tar.gz
+tar -zxvf dl.tar.gz
+dir=`tar zft dl.tar.gz | head -n1`
+cd $dir
+mv * /build
+
+# install app modules
+cd /build
+npm install

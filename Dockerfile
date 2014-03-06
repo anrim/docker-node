@@ -1,4 +1,4 @@
-# Ubuntu 13.10 running with node 0.11.10 & leveldb 1.13
+# Ubuntu 13.10 running with node 0.11.10
 FROM ubuntu:13.10
 MAINTAINER Andreas Rimbe <a@rimbe.net>
 
