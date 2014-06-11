@@ -1,5 +1,5 @@
 ## Create a new Docker for node app
-  # pull anrim/node image
+  # Download Docker image
   $ sudo docker pull anrim/node
   
   # Set url to node app repo tarball and start container
