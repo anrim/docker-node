@@ -1,22 +1,26 @@
-## Create a new Docker for node app
-  # Download Docker image
-  $ sudo docker pull anrim/node
+## Docker container with Node.js
+
+## Pull image
+
+	$ sudo docker pull anrim/node
   
-  # Set url to node app repo tarball and start container
-  $ URL="https://github.com/anrim/koa-hello-world/archive/master.tar.gz"
-  $ CONTAINER_ID=$(sudo docker run -d -t anrim/node:latest /usr/local/bin/buildapp $URL)
+## Run container & modify
+  	# Set url to node app repo tarball and start container
+  	$ URL="https://github.com/anrim/koa-hello-world/archive/master.tar.gz"
+  	$ CONTAINER_ID=$(sudo docker run -d -t anrim/node:latest /usr/local/bin/buildapp $URL)
   
-  # Create new image called {username}/{repo} and use version as tag
-  $ IMAGE_ID=$(sudo docker commit $CONTAINER_ID {username}/{repo}:{tag})
+## Push new container
+	
+	$ IMAGE_ID=$(sudo docker commit $CONTAINER_ID {username}/{repo}:{tag})
   
-  # Run image
-  $ NODE_APP=$(sudo docker run -d -p 3000 $IMAGE_ID /usr/local/bin/runapp)
+	# Run image
+  	$ NODE_APP=$(sudo docker run -d -p 3000 $IMAGE_ID /usr/local/bin/runapp)
   
-  $ Find out port
-  $ NODE_APP_PORT=$(sudo docker port $NODE_APP 3000 | awk -F: '{ print $2 }')
+  	$ Find out port
+  	$ NODE_APP_PORT=$(sudo docker port $NODE_APP 3000 | awk -F: '{ print $2 }')
   
-  # Test app
-  $ curl http://127.0.0.1:$NODE_APP_PORT
+  	# Test app
+  	$ curl http://127.0.0.1:$NODE_APP_PORT
   
-  # (Optional) Attach to container
-  $ sudo docker attach -sig-proxy=false $CONTAINER_ID
+  	# (Optional) Attach to container
+  	$ sudo docker attach -sig-proxy=false $CONTAINER_ID
